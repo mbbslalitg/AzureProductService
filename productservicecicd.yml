@@ -28,4 +28,4 @@ steps:
       azureSubscription: 'ProductServiceConnection' # service connection
       appType: 'webApp'
       appName: 'productservice-cicd' # web app name
-      package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+      package: '$(Build.ArtifactStagingDirectory)'
