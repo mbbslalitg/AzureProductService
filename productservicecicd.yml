@@ -1,0 +1,31 @@
+
+trigger:
+  - main
+
+pool:
+  name: KuldeepAgent
+
+steps:
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '10.x'
+
+  - script: dotnet restore src/ProductService/ProductService.csproj
+    displayName: 'Restore'
+
+  - script: dotnet build src/ProductService/ProductService.csproj
+    displayName: 'Build'
+
+  - script: dotnet test test/MyTests/MyTests.csproj
+    displayName: 'Test'
+
+  - script: dotnet publish src/ProductService/ProductService.csproj -c Release -o $(Build.ArtifactStagingDirectory)
+    displayName: 'Publish'
+
+  - task: AzureWebApp@1
+    inputs:
+      azureSubscription: 'ProductServiceConnection' # service connection
+      appType: 'webApp'
+      appName: 'productservice-cicd' # web app name
+      package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
