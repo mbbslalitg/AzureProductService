@@ -1,0 +1,31 @@
+
+trigger:
+  - main
+
+pool:
+  name: KuldeepAgent
+
+steps:
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '10.x'
+
+  - script: dotnet restore src/DiscountService\DiscountService.csproj
+    displayName: 'Restore'
+
+  - script: dotnet build src/DiscountService\DiscountService.csproj
+    displayName: 'Build'
+
+  - script: dotnet test test/MyTests/MyTests.csproj
+    displayName: 'Test'
+
+  - script: dotnet publish src/DiscountService\DiscountService.csproj -c Release -o $(Build.ArtifactStagingDirectory)
+    displayName: 'Publish'
+
+  - task: AzureWebApp@1
+    inputs:
+      azureSubscription: 'ProductServiceConnection' # service connection
+      appType: 'webApp'
+      appName: 'DiscountService1' # web app name
+      package: '$(Build.ArtifactStagingDirectory)'
