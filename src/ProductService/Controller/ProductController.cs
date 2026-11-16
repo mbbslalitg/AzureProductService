@@ -21,13 +21,13 @@ namespace ProductService.Controller
         [HttpGet]
         public IActionResult GetProducts()
         {
-            return Ok(_appDbcontext.Prroducts.ToList());
+            return Ok(_appDbcontext.Products.ToList());
         }
 
         [HttpPost]
         public IActionResult AddProducts(Product product)
         {
-            _appDbcontext.Prroducts.Add(product);
+            _appDbcontext.Products.Add(product);
             _appDbcontext.SaveChanges();
             return Ok(product);
         }

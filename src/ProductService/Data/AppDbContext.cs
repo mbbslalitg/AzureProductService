@@ -11,6 +11,7 @@ namespace ProductService.Data
             
         }
 
-        public DbSet<Product> Prroducts {get;set;}
+        public DbSet<Product> Products { get; set; }
+
     }
 }

@@ -160,3 +160,4 @@ C:\Users\003SLG744\Desktop\GenAI\Cloud Devops Project and Recordings\Project\myw
 C:\Users\003SLG744\Desktop\GenAI\Cloud Devops Project and Recordings\Project\mywebapiapp\src\ProductService\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\003SLG744\Desktop\GenAI\Cloud Devops Project and Recordings\Project\mywebapiapp\src\ProductService\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\003SLG744\Desktop\GenAI\Cloud Devops Project and Recordings\Project\mywebapiapp\src\ProductService\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\003SLG744\Desktop\GenAI\Cloud Devops Project and Recordings\Project\mywebapiapp\src\ProductService\obj\Debug\net10.0\ProductService.sourcelink.json
