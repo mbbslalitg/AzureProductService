@@ -6,7 +6,7 @@ pool:
   name: KuldeepAgent
 
 steps:
-  - task: UseDotNet@4
+  - task: UseDotNet@2
     inputs:
       packageType: 'sdk'
       version: '10.x'
@@ -23,7 +23,7 @@ steps:
   - script: dotnet publish src/DiscountService\DiscountService.csproj -c Release -o $(Build.ArtifactStagingDirectory)
     displayName: 'Publish'
 
-  - task: AzureWebApp@2
+  - task: AzureWebApp@1
     inputs:
       azureSubscription: 'ProductServiceConnection' # service connection
       appType: 'webApp'
