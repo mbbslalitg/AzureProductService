@@ -24,6 +24,22 @@ namespace ProductService.Controller
             return Ok(_appDbcontext.Products.ToList());
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetProductById(int id)
+        {
+            var product = _appDbcontext.Products
+                               .FirstOrDefault(p => p.Id == id);
+
+            if (product == null)
+            {
+                return NotFound($"Product with ID {id} not found.");
+            }
+
+            return Ok(product);
+        }
+
+        
+
         [HttpPost]
         public IActionResult AddProducts(Product product)
         {
